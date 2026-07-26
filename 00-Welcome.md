@@ -4,6 +4,8 @@ Tranquil is three tools in one window: a **code editor**, a full **web browser**
 **automations runner** that lets a script drive the browser. This short, hands-on tour
 shows you how they fit together — by doing, not just reading.
 
+> Click the **◫ open-preview** button (top-right of this tab bar) to open a rendered version of this markdown file.
+
 ## How this guide works
 
 Work through the numbered lessons in order. Each takes a couple of minutes and ends with a
