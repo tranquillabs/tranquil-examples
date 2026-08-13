@@ -13,7 +13,8 @@ import { tabs, ui, files, clipboard, config, workspace, context } from "tranquil
 
 - `tabs` — browser tabs: `active()`, `find()`, `open(url, { background })`, and per-tab
   `evaluate()`, `goto()`, `waitFor()`, `title()`, `screenshot()`.
-- `ui` — `notify(message, { level })` toasts and `open(path, { split })` in the editor.
+- `ui` — `notify(message, { level })` toasts, `status(message, { level })` (log to the Runs
+  panel + toast, for narrating progress), and `open(path, { split })` in the editor.
 - `files` — read/write files next to the script (`files.write` returns the absolute path).
 - `context` — the run's `trigger`, `scriptDir`, and cancel `signal`.
 
