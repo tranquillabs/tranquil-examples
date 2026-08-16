@@ -1,4 +1,5 @@
 // Rough "reader mode": hide common clutter and widen the main column.
+// @permissions browser
 import { tabs } from "tranquil/automation";
 
 const tab = await tabs.active();

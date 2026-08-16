@@ -1,4 +1,5 @@
 // Toggle a small "enhanced by Tranquil" banner on the active page.
+// @permissions browser
 import { tabs } from "tranquil/automation";
 
 const tab = await tabs.active();

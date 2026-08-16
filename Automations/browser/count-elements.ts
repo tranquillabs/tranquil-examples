@@ -1,4 +1,5 @@
 // Notify how many of a tag are on the page (edit the selector as needed).
+// @permissions browser
 import { tabs, ui } from "tranquil/automation";
 
 const tab = await tabs.active();

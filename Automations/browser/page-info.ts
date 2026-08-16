@@ -1,4 +1,5 @@
 // Scrape a few page stats and open them as a text file in the editor.
+// @permissions browser
 import { files, tabs, ui } from "tranquil/automation";
 
 const tab = await tabs.active();

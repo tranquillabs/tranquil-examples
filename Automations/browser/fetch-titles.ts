@@ -9,6 +9,7 @@
 //     await tab.goto(url);
 //     rows.push(`${await tab.title()}\t${url}`);
 //   }
+// @permissions browser
 import { pooledMap } from "jsr:@std/async@1/pool";
 import { files, tabs, ui } from "tranquil/automation";
 
