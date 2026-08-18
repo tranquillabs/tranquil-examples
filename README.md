@@ -1,30 +1,44 @@
 # tranquil-examples
 
-The guided sample project bundled with **Tranquil**. On a fresh install Tranquil seeds a
-copy of this folder to `~/.tranquil/examples` and opens it, starting you on a short,
-hands-on tour of the app. You can reopen it any time via **File → New Default Window**.
+Runnable examples for [Tranquil](https://www.tranquillabs.dev). Each folder is one self-contained
+example — the script, a short README, and anything it writes.
 
-**Start here → [`00-Welcome.md`](./00-Welcome.md).** The numbered lessons walk you through
-Tranquil end to end:
+## Use them
 
-| Lesson | You'll learn |
-| --- | --- |
-| [`00-Welcome.md`](./00-Welcome.md) | What Tranquil is and how this guided project works |
-| [`01-Windows-and-Layout.md`](./01-Windows-and-Layout.md) | Windows, docks, panes, tabs, per-window identity |
-| [`02-Browser-and-Tabs.md`](./02-Browser-and-Tabs.md) | The built-in browser, tabs, find, bookmarks |
-| [`03-Run-Automations.md`](./03-Run-Automations.md) | Running the example browser automations |
-| [`04-Your-First-Automation.md`](./04-Your-First-Automation.md) | Writing and saving your own automation |
+```sh
+git clone https://github.com/tranquillabs/tranquil-examples.git
+```
 
-## Explore further
+Open the folder in Tranquil (**File → Open**), open any web page in a browser tab, then focus a
+`.ts` file and press `Cmd-Shift-R`.
 
-`Automations/browser/` holds the runnable scripts the lessons use. The other folders are
-placeholders — a barebones README today, real worked examples soon:
+Each automation declares the permissions it needs in a comment header, so the first run of each asks
+for approval once.
 
-| Folder | Surface | Status |
+> Clone this somewhere standalone rather than inside an existing Deno project. A `deno.json` in a
+> parent directory takes precedence over the import map Tranquil maintains, and the
+> `tranquil/automation` import will not resolve. See
+> [Where automations live](https://www.tranquillabs.dev/docs/guides/writing-automations/).
+
+## The examples
+
+| Example | What it does | What it teaches |
 | --- | --- | --- |
-| [`Automations/browser/`](./Automations/browser) | client | Runnable browser automations — used in lessons 3–4 |
-| [`Automations/workflows/`](./Automations/workflows) | server | `@tranquil/sdk` workflows — _coming soon_ |
-| [`Examples/`](./Examples) | client | Hands-on example projects and files — _coming soon_ |
-| [`Connectors/`](./Connectors) | server | `@tranquil/sdk` connectors (Slack / HTTP / Airtable / email) — _coming soon_ |
+| [`count-elements/`](./count-elements) | Counts matching elements on the page and notifies | Seven lines — start here |
+| [`page-info/`](./page-info) | Scrapes page stats and opens the result | Writing a file: it lands next to the script, so the example and its output travel together |
+| [`highlight-links/`](./highlight-links) | Outlines every external link | Changing a live page from `tab.evaluate` |
+| [`page-banner/`](./page-banner) | Adds and removes a banner | A toggle you can re-run — it checks for its own element first |
+| [`reader-mode/`](./reader-mode) | Hides clutter and widens the main column | Restyling a page you don't control |
+| [`fetch-titles/`](./fetch-titles) | Visits several pages at once and collects their titles | The multi-tab patterns: bounded concurrency with `pooledMap`, and `await using` so tabs close even when a crawl throws |
+| [`slow-count/`](./slow-count) | Counts slowly — a run long enough to try **Cancel** on | Passing `context.signal` to whatever you wait on, so Cancel stops the script within a second instead of at the next step boundary |
+| [`search-to-bookmarks/`](./search-to-bookmarks) | Searches the web, saves each result as a `.url`, writes a summary | The fullest one: file input, a `fetch`, scraping, and file output in a single script |
+| [`spice-catalogue/`](./spice-catalogue) | Maintains a `spices.json` across runs — create, read, update, delete | The only one that edits a file it already owns. Run it twice and the second run finds nothing to do |
+| [`example-bookmark/`](./example-bookmark) | A `.url` bookmark, opened as a browser tab | Bookmarks are plain files you can keep in version control |
 
-All content is **generic and invented** — no real data.
+## Learning Tranquil
+
+This repo is examples only. The guides — the editor, the browser, writing and running automations,
+and the permissions model — live at
+**[tranquillabs.dev/docs](https://www.tranquillabs.dev/docs/guides/studio/overview/)**.
+
+All content here is generic and invented; there is no real data in it.

@@ -1,2 +1,13 @@
 .DS_Store
 node_modules/
+
+# Deliberately NOT ignoring what the examples write — output.md, titles.tsv, page-info.txt and
+# the results/ bookmark folders. The tree-view hides VCS-ignored files (tree-view.
+# hideVcsIgnoredFiles, on by default here), so ignoring them meant running an example produced
+# nothing visible in the tree: the .url bookmarks you are meant to double-click, and the summary
+# the script opens for you, were both invisible. Seeing your output matters more here than a
+# clean `git status`, and untracked files after running something that writes files is honest.
+
+# Temp entry files the runner writes when you run a selection rather than a whole file.
+# Normally cleaned up after each run; this catches anything a crash leaves behind.
+.runs/
