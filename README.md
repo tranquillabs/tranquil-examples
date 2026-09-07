@@ -29,6 +29,7 @@ for approval once.
 | [`highlight-links/`](./highlight-links) | Outlines every external link | Changing a live page from `tab.evaluate` |
 | [`page-banner/`](./page-banner) | Adds and removes a banner | A toggle you can re-run — it checks for its own element first |
 | [`reader-mode/`](./reader-mode) | Hides clutter and widens the main column | Restyling a page you don't control |
+| [`measure-and-place/`](./measure-and-place) | Labels every image with its rendered size | Measuring a page and then changing it. `evaluate` runs on the page's own main thread, so batch every read before the first write — otherwise each measurement forces a fresh layout |
 | [`fetch-titles/`](./fetch-titles) | Visits several pages at once and collects their titles | The multi-tab patterns: bounded concurrency with `pooledMap`, and `await using` so tabs close even when a crawl throws |
 | [`slow-count/`](./slow-count) | Counts slowly — a run long enough to try **Cancel** on | Passing `context.signal` to whatever you wait on, so Cancel stops the script within a second instead of at the next step boundary |
 | [`search-to-bookmarks/`](./search-to-bookmarks) | Searches the web, saves each result as a `.url`, writes a summary | The fullest one: file input, a `fetch`, scraping, and file output in a single script |
