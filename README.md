@@ -18,7 +18,7 @@ for approval once.
 > Clone this somewhere standalone rather than inside an existing Deno project. A `deno.json` in a
 > parent directory takes precedence over the import map Tranquil maintains, and the
 > `tranquil/automation` import will not resolve. See
-> [Where automations live](https://www.tranquillabs.dev/docs/guides/writing-automations/).
+> [Where automations live](https://www.tranquillabs.dev/docs/guides/automations/writing-automations/).
 
 ## The examples
 
