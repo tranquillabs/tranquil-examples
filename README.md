@@ -34,7 +34,7 @@ for approval once.
 | [`slow-count/`](./slow-count) | Counts slowly — a run long enough to try **Cancel** on | Passing `context.signal` to whatever you wait on, so Cancel stops the script within a second instead of at the next step boundary |
 | [`search-to-bookmarks/`](./search-to-bookmarks) | Searches the web, saves each result as a `.url`, writes a summary | The fullest one: file input, a `fetch`, scraping, and file output in a single script |
 | [`spice-catalogue/`](./spice-catalogue) | Maintains a `spices.json` across runs — create, read, update, delete | The only one that edits a file it already owns. Run it twice and the second run finds nothing to do |
-| [`example-bookmark/`](./example-bookmark) | A `.url` bookmark, opened as a browser tab | Bookmarks are plain files you can keep in version control |
+| [`files-example/`](./files-example) | Sample files covering the common desktop types — text, Markdown, PDF, an image, data, code, a bookmark | How the tree view represents different file types, and what actually happens when you open each one |
 
 ## Learning Tranquil
 

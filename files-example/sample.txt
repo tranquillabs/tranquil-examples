@@ -1,0 +1,5 @@
+This is a plain .txt file.
+
+It opens straight into the text editor — no icon surprises, no preview pane, nothing to toggle.
+Most file types in this folder end up here one way or another; the interesting ones are the few
+that don't.
