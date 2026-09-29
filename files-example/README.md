@@ -22,4 +22,4 @@ Audio and video files aren't included — Tranquil has no built-in player, so th
 unreadable binary content in a text editor.
 
 To make your own bookmark, open a page and press `Cmd-Shift-A`. See the
-[Browser & Tabs guide](https://www.tranquillabs.dev/docs/guides/studio/browser/).
+[Browser & Tabs guide](https://www.tranquillabs.dev/docs/browser/).

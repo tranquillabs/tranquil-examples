@@ -56,4 +56,4 @@ need updating if Wikipedia changes its markup — today the list page has exactl
 and article paragraphs sit inside `<section>` wrappers, which is why that second selector is a
 descendant match rather than a child one.
 
-See the [Writing Automations guide](https://www.tranquillabs.dev/docs/guides/writing-automations/).
+See the [Writing Automations guide](https://www.tranquillabs.dev/docs/writing-automations/).

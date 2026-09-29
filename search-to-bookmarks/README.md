@@ -47,4 +47,4 @@ your clone dirty; that is the output, not noise.
 Scraping is against a live site, so the selectors (`a[data-testid="result-title-a"]`,
 `#more-results`) will need updating whenever DuckDuckGo changes its markup.
 
-See the [Writing Automations guide](https://www.tranquillabs.dev/docs/guides/writing-automations/).
+See the [Writing Automations guide](https://www.tranquillabs.dev/docs/writing-automations/).

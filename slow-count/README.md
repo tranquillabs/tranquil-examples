@@ -21,4 +21,4 @@ you would close tabs or flush a partial file. If a script ignores the signal, th
 a CANCEL frame, then SIGTERM, then SIGKILL a second later.
 
 Declares `// @permissions none` — it only counts, so it never prompts for approval.
-See the [Writing Automations guide](https://www.tranquillabs.dev/docs/guides/writing-automations/).
+See the [Writing Automations guide](https://www.tranquillabs.dev/docs/writing-automations/).

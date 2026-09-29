@@ -53,4 +53,4 @@ label, so they are read once above the loop rather than per image.
 Open a page with images in a browser tab, focus `measure-and-place.ts`, and press `Cmd-Shift-R`.
 
 Declares `// @permissions browser`, so the first run asks for approval once.
-See the [Writing Automations guide](https://www.tranquillabs.dev/docs/guides/writing-automations/).
+See the [Writing Automations guide](https://www.tranquillabs.dev/docs/writing-automations/).
