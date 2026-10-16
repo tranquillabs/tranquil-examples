@@ -1,15 +1,16 @@
+// Tranquil automation. Rules for writing and changing it: ~/.tranquil/llm/writing-automations.md
 // Multi-URL fan-out: visit several pages in background tabs (up to 3 at once), collect their
 // titles, and open the result as a TSV in the editor.
 //
-// `await using` auto-closes each tab when the block finishes — no leaked tabs in loops.
-// The sequential sibling — the same crawl reusing ONE visible tab — is:
+// `await using` auto-closes each tab when the block finishes, so loops leak no tabs.
+// The sequential sibling, the same crawl reusing ONE visible tab, is:
 //
 //   const tab = await tabs.active();
 //   for (const url of urls) {
 //     await tab.goto(url);
 //     rows.push(`${await tab.title()}\t${url}`);
 //   }
-// @permissions browser write=titles.tsv
+// @permissions tabs write=titles.tsv
 import { pooledMap } from "jsr:@std/async@1/pool";
 import { files, tabs, ui } from "tranquil/automation";
 

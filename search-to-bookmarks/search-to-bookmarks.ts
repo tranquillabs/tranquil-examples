@@ -1,10 +1,11 @@
+// Tranquil automation. Rules for writing and changing it: ~/.tranquil/llm/writing-automations.md
 // Search DuckDuckGo for the query in input.txt, save each result as a .url bookmark in a new
 // folder next to this script, and open a Markdown summary.
 //
 // Grants name exact paths. Nothing beside the script is readable or writable unless it is listed
-// here, and a bare "." is rejected — bookmarks go in a fixed `results/` folder precisely so the
+// here, and a bare "." is rejected. Bookmarks go in a fixed `results/` folder precisely so the
 // grant can be a name rather than "my whole directory".
-// @permissions browser net=duckduckgo.com read=input.txt write=output.md,results
+// @permissions page-js net=duckduckgo.com read=input.txt write=output.md,results
 
 import { context, files, tabs, ui } from "tranquil/automation";
 import { parse } from "jsr:@std/dotenv@0.225/parse";
@@ -16,7 +17,7 @@ let inputs: Record<string, string>;
 try {
   inputs = parse(files.read("input.txt"));
 } catch {
-  await ui.notify('Missing "input.txt" next to the script — add e.g.  query=business automation', {
+  await ui.notify('Missing "input.txt" next to the script. Add a line such as  query=business automation', {
     level: "error",
   });
   Deno.exit(1);
@@ -50,11 +51,11 @@ await ui.notify(`Collecting top ${count} results…`);
 // "a result that wasn't here a moment ago". waitFor's predicate runs inside the page and
 // takes no arguments, so marking the DOM is how you carry a baseline across that boundary.
 const askedForMore = await tab.evaluate<boolean>(
-  (n: number, sel: string) => {
-    const found = document.querySelectorAll(sel);
+  (page, n: number, sel: string) => {
+    const found = page.document.querySelectorAll(sel);
     if (found.length >= n) return false;
     found.forEach((a) => a.setAttribute("data-tq-seen", ""));
-    document.querySelector<HTMLButtonElement>("#more-results")?.click();
+    page.document.querySelector("#more-results")?.click();
     return true;
   },
   count,
@@ -63,8 +64,8 @@ const askedForMore = await tab.evaluate<boolean>(
 
 if (askedForMore) {
   // Wait for the results themselves, never a fixed sleep. A guessed delay is wrong in both
-  // directions: too short on a slow connection — where the scrape below quietly returns
-  // only the first page — and wasted time on every fast run.
+  // directions: too short on a slow connection, where the scrape below quietly returns
+  // only the first page, and wasted time on every fast run.
   try {
     await tab.waitFor(`${RESULT}:not([data-tq-seen])`, { timeout: 10000 });
   } catch {
@@ -74,10 +75,10 @@ if (askedForMore) {
 }
 
 const results = await tab.evaluate<{ title: string; url: string }[]>(
-  (n: number, sel: string) => {
+  (page, n: number, sel: string) => {
     const out: { title: string; url: string }[] = [];
-    for (const a of document.querySelectorAll<HTMLAnchorElement>(sel)) {
-      const u = new URL(a.href);
+    for (const a of page.document.querySelectorAll(sel)) {
+      const u = new URL(a.getAttribute("href") ?? "", page.location.href);
       if (u.hostname.endsWith("duckduckgo.com")) continue; // skip DDG ad/tracker links (y.js, etc.)
       out.push({ title: (a.textContent || "").trim(), url: u.origin + u.pathname }); // strip ?query#hash
       if (out.length >= n) break;
@@ -111,4 +112,4 @@ const summary = [
   "",
 ].join("\n");
 await ui.open(files.write("output.md", summary));
-await ui.notify(`■ Done — ${results.length} results → ${folder}/`, { level: "success" });
+await ui.notify(`■ Done: ${results.length} results → ${folder}/`, { level: "success" });

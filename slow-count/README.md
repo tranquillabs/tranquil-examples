@@ -12,7 +12,7 @@ The interesting part is `context.signal`, which the runner aborts as soon as you
 await delay(EVERY_MS, { signal: context.signal });
 ```
 
-Passing the signal to whatever you wait on — `delay`, `fetch`, your own `AbortController` — is what
+Passing the signal to whatever you wait on (`delay`, `fetch`, your own `AbortController`) is what
 makes Cancel immediate. Without it the loop would still stop, but only at the next step boundary,
 and cancelling a script that sleeps for a minute would take a minute to take effect.
 
@@ -20,5 +20,5 @@ Catching the abort lets the script finish tidily rather than being killed mid-wo
 you would close tabs or flush a partial file. If a script ignores the signal, the runner escalates:
 a CANCEL frame, then SIGTERM, then SIGKILL a second later.
 
-Declares `// @permissions none` — it only counts, so it never prompts for approval.
-See the [Writing Automations guide](https://www.tranquillabs.dev/docs/writing-automations/).
+Declares `// @permissions none`: it only counts, so it never prompts for approval.
+See [this example in the docs](https://www.tranquillabs.dev/docs/example-slow-count/).

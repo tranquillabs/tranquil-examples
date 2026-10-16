@@ -1,4 +1,5 @@
-// Counts slowly, so there is a run in flight long enough to cancel — and shows how to stop
+// Tranquil automation. Rules for writing and changing it: ~/.tranquil/llm/writing-automations.md
+// Counts slowly, so there is a run in flight long enough to cancel, and shows how to stop
 // cleanly when you do. Each step waits on `context.signal`, which the runner aborts the moment
 // you press Cancel, so the script stops between steps instead of being killed mid-work.
 // @permissions none
@@ -29,8 +30,8 @@ try {
 }
 
 if (cancelled) {
-  // Tidy-up you would otherwise skip — closing tabs, flushing a partial file — belongs here.
+  // Tidy-up you would otherwise skip (closing tabs, flushing a partial file) belongs here.
   console.log(`Cancelled after ${reached} step(s); stopped cleanly.`);
 } else {
-  await ui.notify(`Done — counted to ${STEPS}.`, { level: "success" });
+  await ui.notify(`Done: counted to ${STEPS}.`, { level: "success" });
 }

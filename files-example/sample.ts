@@ -1,4 +1,4 @@
-// A plain TypeScript file — here to show the icon and syntax highlighting.
+// A plain TypeScript file, here to show the icon and syntax highlighting.
 // Unlike every other .ts file in this repo, this one is NOT a runnable automation
 // (no `tranquil/automation` import, no `@permissions` header). Cmd-Shift-R won't do anything useful here.
 

@@ -11,10 +11,11 @@ This is the fan-out example, and the one worth reading rather than just running:
   a crawl that throws halfway leaves its tabs open.
 - **`tab.waitFor("h1")`** waits for content rather than guessing with a sleep.
 
-The script's header comment shows the sequential alternative — the same crawl through one visible
-tab — which is easier to watch and easier to debug.
+The script's header comment shows the sequential alternative, the same crawl through one visible
+tab, which is easier to watch and easier to debug.
 
 Open a page in a browser tab, focus `fetch-titles.ts`, and press `Cmd-Shift-R`.
 
-Declares `// @permissions browser`, so the first run asks for approval once.
-See the [Writing Automations guide](https://www.tranquillabs.dev/docs/writing-automations/).
+Declares `// @permissions tabs write=titles.tsv`: opening and reading tabs needs only `tabs`, and
+the one file it writes is named. The first run asks for approval once.
+See [this example in the docs](https://www.tranquillabs.dev/docs/example-fetch-titles/).
