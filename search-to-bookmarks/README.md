@@ -22,9 +22,10 @@ The most complete example here: it touches nearly every part of the API in one r
    count=10
    ```
    `count` is clamped to 1–25.
-2. Open a browser tab on any page, focus `search-to-bookmarks.ts`, and press `Cmd-Shift-R`.
+2. Open a browser tab on any page beside `search-to-bookmarks.ts` (split the pane, so both
+   show), focus `search-to-bookmarks.ts`, and press `Cmd-Shift-R`.
 
-It navigates the **active tab**, so it will take over whatever page you have open.
+It navigates that tab, so it will take over whatever page it shows.
 
 ## Permissions
 

@@ -3,7 +3,8 @@
 A rough reader mode: hides headers, footers, sidebars, and navigation, then widens and
 re-types the main column. Reload the page to undo it.
 
-Open a page in a browser tab, focus `reader-mode.ts`, and press `Cmd-Shift-R`.
+Open a page in a browser tab beside `reader-mode.ts` (split the pane, so both show), focus
+`reader-mode.ts`, and press `Cmd-Shift-R`.
 
 Declares `// @permissions page-js`, because it restyles the page, so the first run asks for
 approval once.

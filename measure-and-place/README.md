@@ -50,7 +50,8 @@ label, so they are read once above the loop rather than per image.
 - The `DocumentFragment` is tidiness more than speed: one insertion instead of many reads better,
   but it is the read/write split that does the real work.
 
-Open a page with images in a browser tab, focus `measure-and-place.ts`, and press `Cmd-Shift-R`.
+Open a page with images in a browser tab beside `measure-and-place.ts` (split the pane, so both
+show), focus `measure-and-place.ts`, and press `Cmd-Shift-R`.
 
 Declares `// @permissions page-js`, because it measures and changes the page, so the first run asks
 for approval once.

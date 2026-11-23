@@ -4,7 +4,8 @@ Counts how many paragraphs (or any tag you choose) are on the active page and sh
 
 Edit the selector in `querySelectorAll("p")` to count something else.
 
-Open a page in a browser tab, focus `count-elements.ts`, and press `Cmd-Shift-R`.
+Open a page in a browser tab beside `count-elements.ts` (split the pane, so both show), focus
+`count-elements.ts`, and press `Cmd-Shift-R`.
 
 Declares `// @permissions page-js`, because counting runs in the page, so the first run asks for
 approval once.

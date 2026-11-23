@@ -10,8 +10,10 @@ example: the script, a short README, and anything it writes. Each also has a pag
 git clone https://github.com/tranquillabs/tranquil-examples.git
 ```
 
-Open the folder in Tranquil (**File → Open**), open any web page in a browser tab, then focus a
-`.ts` file and press `Cmd-Shift-R`.
+Open the folder in Tranquil (**File → Open**), open any web page in a browser tab beside a `.ts`
+file (split the pane, so both show), then focus the `.ts` file and press `Cmd-Shift-R`. A script
+acts on the web page showing when it starts, or the one you clicked into; with no page showing, or
+two, it stops and says so.
 
 Each automation is one standalone script. A Deno script declares everything it needs in the script
 itself: its dependencies as imports, and what it may do in a comment header at the top (the first
